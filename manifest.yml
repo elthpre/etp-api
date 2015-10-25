@@ -1,0 +1,13 @@
+applications:
+- path: .
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: Electing the President
+  host: electing-the-president
+  disk_quota: 1024M
+  services:
+  - Electing the President-cloudantNoSQLDB
+  - Electing the President-imfpush
+  - Electing the President-AdvancedMobileAccess
+  command: node app.js
