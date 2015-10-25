@@ -1,51 +1,64 @@
 /**
- * @license
- * Licensed Materials - Property of IBM
- * 5725-I43 (C) Copyright IBM Corp. 2014, 2015. All Rights Reserved.
- * US Government Users Restricted Rights - Use, duplication or
- * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ * app.js
+ *
+ * Use `app.js` to run your app without `sails lift`.
+ * To start the server, run: `node app.js`.
+ *
+ * This is handy in situations where the sails CLI is not relevant or useful.
+ *
+ * For example:
+ *   => `node app.js`
+ *   => `forever start app.js`
+ *   => `node debug app.js`
+ *   => `modulus deploy`
+ *   => `heroku scale`
+ *
+ *
+ * The same command-line arguments are supported, e.g.:
+ * `node app.js --silent --port=80 --prod`
  */
 
-var express = require('express');
-var passport = require('passport');
-var ImfBackendStrategy = require('passport-imf-token-validation').ImfBackendStrategy;
-var imf = require('imf-oauth-user-sdk');
+// Ensure we're in the project directory, so relative paths work as expected
+// no matter where we actually lift from.
+process.chdir(__dirname);
 
-passport.use(new ImfBackendStrategy());
+// Ensure a "sails" can be located:
+(function() {
+  var sails;
+  try {
+    sails = require('sails');
+  } catch (e) {
+    console.error('To run an app using `node app.js`, you usually need to have a version of `sails` installed in the same directory as your app.');
+    console.error('To do that, run `npm install sails`');
+    console.error('');
+    console.error('Alternatively, if you have sails installed globally (i.e. you did `npm install -g sails`), you can use `sails lift`.');
+    console.error('When you run `sails lift`, your app will still use a local `./node_modules/sails` dependency if it exists,');
+    console.error('but if it doesn\'t, the app will run with the global sails instead!');
+    return;
+  }
 
-var app = express();
-app.use(passport.initialize());
+  // Try to get `rc` dependency
+  var rc;
+  try {
+    rc = require('rc');
+  } catch (e0) {
+    try {
+      rc = require('sails/node_modules/rc');
+    } catch (e1) {
+      console.error('Could not find dependency: `rc`.');
+      console.error('Your `.sailsrc` file(s) will be ignored.');
+      console.error('To resolve this, run:');
+      console.error('npm install rc --save');
+      rc = function () { return {}; };
+    }
+  }
 
-//redirect to mobile backend application doc page when accessing the root context
-app.get('/', function(req, res){
-	res.sendfile('public/index.html');
-});
+  // cfenv provides access to your Cloud Foundry environment
+  // for more info, see: https://www.npmjs.com/package/cfenv
+  var cfenv = require('cfenv');
 
-// create a public static content service
-app.use("/public", express.static(__dirname + '/public'));
+  global.bluemix = cfenv.getAppEnv();
 
-// create another static content service, and protect it with imf-backend-strategy
-app.use("/protected", passport.authenticate('imf-backend-strategy', {session: false }));
-app.use("/protected", express.static(__dirname + '/protected'));
-
-// create a backend service endpoint
-app.get('/publicServices/generateToken', function(req, res){
-		// use imf-oauth-user-sdk to get the authorization header, which can be used to access the protected resource/endpoint by imf-backend-strategy
-		imf.getAuthorizationHeader().then(function(token) {
-			res.send(200, token);
-		}, function(err) {
-			console.log(err);
-		});
-	}
-);
-
-//create another backend service endpoint, and protect it with imf-backend-strategy
-app.get('/protectedServices/test', passport.authenticate('imf-backend-strategy', {session: false }),
-		function(req, res){
-			res.send(200, "Successfully access to protected backend endpoint.");
-		}
-);
-
-var port = (process.env.VCAP_APP_PORT || 3000);
-app.listen(port);
-console.log("mobile backend app is listening at " + port);
+  // Start server
+  sails.lift(rc('sails'));
+})();
