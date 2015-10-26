@@ -55,9 +55,9 @@ process.chdir(__dirname);
 
   // cfenv provides access to your Cloud Foundry environment
   // for more info, see: https://www.npmjs.com/package/cfenv
-  var cfenv = require('cfenv');
+  //var cfenv = require('cfenv');
 
-  global.bluemix = cfenv.getAppEnv();
+  //global.bluemix = cfenv.getAppEnv();
 
   // Start server
   sails.lift(rc('sails'));
