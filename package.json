@@ -8,6 +8,7 @@
     "node": "0.12.x"
   },
   "dependencies": {
+    "cfenv": "^1.0.3",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
     "grunt-contrib-clean": "~0.5.0",
