@@ -34,10 +34,10 @@ module.exports.connections = {
 
   bluemix: {
     adapter: 'sails-couchdb-orm',
-    host: process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT.cloudantNoSQLDB.credentials.host : null,
-    port: process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT.cloudantNoSQLDB.credentials.port : null,
-    username: process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT.cloudantNoSQLDB.credentials.username : null,
-    password: process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT.cloudantNoSQLDB.credentials.password : null
+    host: process.env.VCAP_APP_PORT ? process.env.cloudantNoSQLDB.credentials.host : null,
+    port: process.env.VCAP_APP_PORT ? process.env.cloudantNoSQLDB.credentials.port : null,
+    username: process.env.VCAP_APP_PORT ? process.env.cloudantNoSQLDB.credentials.username : null,
+    password: process.env.VCAP_APP_PORT ? process.env.cloudantNoSQLDB.credentials.password : null
   },
 
   /***************************************************************************
