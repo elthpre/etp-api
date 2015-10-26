@@ -32,20 +32,12 @@ module.exports.connections = {
     adapter: 'sails-disk'
   },
 
-  /***************************************************************************
-  *                                                                          *
-  * MySQL is the world's most popular relational database.                   *
-  * http://en.wikipedia.org/wiki/MySQL                                       *
-  *                                                                          *
-  * Run: npm install sails-mysql                                             *
-  *                                                                          *
-  ***************************************************************************/
-  someMysqlServer: {
-    adapter: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_MYSQL_USER',
-    password: 'YOUR_MYSQL_PASSWORD',
-    database: 'YOUR_MYSQL_DB'
+  bluemix: {
+    adapter: 'sails-couchdb-orm',
+    host: process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT.cloudantNoSQLDB.credentials.host : null,
+    port: process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT.cloudantNoSQLDB.credentials.port : null,
+    username: process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT.cloudantNoSQLDB.credentials.username : null,
+    password: process.env.VCAP_APP_PORT ? process.env.VCAP_APP_PORT.cloudantNoSQLDB.credentials.password : null
   },
 
   /***************************************************************************
