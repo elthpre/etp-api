@@ -34,10 +34,10 @@ module.exports.connections = {
 
   bluemix: {
     adapter: 'sails-couchdb-orm',
-    host: global.bluemix || process.env.CLOUDDB_HOST ? process.env.CLOUDDB_HOST || global.bluemix.cloudantNoSQLDB[0].credentials.host  : null,
-    port: global.bluemix || process.env.CLOUDDB_PORT ? process.env.CLOUDDB_PORT || global.bluemix.cloudantNoSQLDB[0].credentials.port  : null,
-    username: global.bluemix || process.env.CLOUDDB_USER ? process.env.CLOUDDB_USER || global.bluemix.cloudantNoSQLDB[0].credentials.username : null,
-    password: global.bluemix || process.env.CLOUDDB_PASS ? process.env.CLOUDDB_PASS || global.bluemix.cloudantNoSQLDB[0].credentials.password  : null
+    host: process.env.CLOUDDB_HOST,//global.bluemix || process.env.CLOUDDB_HOST ? process.env.CLOUDDB_HOST || global.bluemix.cloudantNoSQLDB[0].credentials.host  : null,
+    port: process.env.CLOUDDB_PORT,//global.bluemix || process.env.CLOUDDB_PORT ? process.env.CLOUDDB_PORT || global.bluemix.cloudantNoSQLDB[0].credentials.port  : null,
+    username: process.env.CLOUDDB_USER, //global.bluemix || process.env.CLOUDDB_USER ? process.env.CLOUDDB_USER || global.bluemix.cloudantNoSQLDB[0].credentials.username : null,
+    password: process.env.CLOUDDB_PASS //global.bluemix || process.env.CLOUDDB_PASS ? process.env.CLOUDDB_PASS || global.bluemix.cloudantNoSQLDB[0].credentials.password  : null
   },
 
   /***************************************************************************
