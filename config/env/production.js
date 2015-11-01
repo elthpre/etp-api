@@ -29,7 +29,8 @@ module.exports = {
 
   port: process.env.VCAP_APP_PORT,//global.bluemix.port,
 
-  proxyHost: 'electing-the-president.mybluemix.net',
+  proxyHost: 'https://electing-the-president.mybluemix.net',
+  host: 'https://electing-the-president.mybluemix.net',
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
