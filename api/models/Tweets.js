@@ -12,7 +12,7 @@ module.exports = {
       type: 'string',
     },
     canditate: {
-      model:'canditates'
+      model:'Canditates'
     },
     time: {
       type: 'datetime'
