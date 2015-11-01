@@ -16,7 +16,6 @@ module.exports = {
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
-   port: 443,
    models: {
      connection: 'bluemix'
    },
@@ -26,6 +25,8 @@ module.exports = {
    ***************************************************************************/
 
   port: process.env.VCAP_APP_PORT,//global.bluemix.port,
+
+  proxyHost: 'electing-the-president.mybluemix.net',
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *

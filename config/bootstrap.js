@@ -10,16 +10,6 @@
  */
 
 module.exports.bootstrap = function(cb) {
-  var express = require("express"),
-         app = express();
-
-if(sails.config.port === 443){
-  app.get('*', function(req,res) {
-      res.redirect('https://' + req.headers.host + req.url)
-  }).listen(80);
-}
-  
-
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
   cb();
