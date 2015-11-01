@@ -31,13 +31,21 @@ module.exports.connections = {
   localDiskDb: {
     adapter: 'sails-disk'
   },
-
+  /*adapter		: 'sails-couchdb-orm',
+      host			: url && url.hostname,
+      https			: url && (url.protocol === 'https'),
+      username	: process.env.COUCHDB_USERNAME || 'admin',
+      password	: process.env.COUCHDB_PASSWORD || 'admin'*/
   bluemix: {
     adapter: 'sails-couchdb-orm',
-    host: process.env.CLOUDDB_HOST,//global.bluemix || process.env.CLOUDDB_HOST ? process.env.CLOUDDB_HOST || global.bluemix.cloudantNoSQLDB[0].credentials.host  : null,
+    host: process.env.CLOUDDB_HOST,
+    https: true,
+    //host: process.env.CLOUDDB_HOST,//global.bluemix || process.env.CLOUDDB_HOST ? process.env.CLOUDDB_HOST || global.bluemix.cloudantNoSQLDB[0].credentials.host  : null,
     port: process.env.CLOUDDB_PORT,//global.bluemix || process.env.CLOUDDB_PORT ? process.env.CLOUDDB_PORT || global.bluemix.cloudantNoSQLDB[0].credentials.port  : null,
     username: process.env.CLOUDDB_USER, //global.bluemix || process.env.CLOUDDB_USER ? process.env.CLOUDDB_USER || global.bluemix.cloudantNoSQLDB[0].credentials.username : null,
-    password: process.env.CLOUDDB_PASS //global.bluemix || process.env.CLOUDDB_PASS ? process.env.CLOUDDB_PASS || global.bluemix.cloudantNoSQLDB[0].credentials.password  : null
+    password: process.env.CLOUDDB_PASS, //global.bluemix || process.env.CLOUDDB_PASS ? process.env.CLOUDDB_PASS || global.bluemix.cloudantNoSQLDB[0].credentials.password  : null
+    database: 'etp',
+    db: 'etp'
   },
 
   /***************************************************************************
@@ -82,12 +90,12 @@ module.exports.connections = {
    *                                                                          *
    *                                                                          *
    ***************************************************************************/
-  somePostgresqlServer: {
+  postgres: {
     adapter: 'sails-postgresql',
-    host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_POSTGRES_USER',
-    password: 'YOUR_POSTGRES_PASSWORD',
-    database: 'YOUR_POSTGRES_DB'
+    host: 'selbysdb.cc2dzmnfwron.us-west-2.rds.amazonaws.com',
+    user: 'etp',
+    password: 'etp',
+    database: 'etp'
   }
 
 
