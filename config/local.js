@@ -61,6 +61,7 @@ module.exports = {
    ***************************************************************************/
 
   // port: process.env.PORT || 1337,
+  //port: 443,
 
   /***************************************************************************
    * The runtime "environment" of your Sails app is either typically         *
@@ -79,6 +80,9 @@ module.exports = {
    * variable.  If NODE_ENV is not set, Sails will run in the                *
    * 'development' environment.                                              *
    ***************************************************************************/
+   adminUsername: 'admin',
+adminEmail: 'admin@example.com',
+adminPassword: 'admin1234',
 
    // environment: process.env.NODE_ENV || 'development'
 
