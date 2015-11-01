@@ -17,8 +17,9 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-   models: {
-     connection: 'postgres'
-   },
+  models: {
+    connection: 'postgres'
+  },
+  callbackDomain: 'http://localhost:1337',
 
 };

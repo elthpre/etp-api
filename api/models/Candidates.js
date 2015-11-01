@@ -35,5 +35,9 @@ module.exports = {
     bio: {
       type: 'text',
     },
+    tweets: {
+      collection: 'tweets',
+      dominant: true
+    }
   }
 };

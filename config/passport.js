@@ -50,58 +50,60 @@ module.exports.passport = {
     protocol: 'oauth2',
     strategy: require('passport-google-oauth').OAuth2Strategy,
     options: {
-      clientID: '708602850919-2cmj6gdbjq91si321dq2hmugn7fqtb09.apps.googleusercontent.com',//'708602850919-eogbne9l34ju3f918kv3hml3jffo771h.apps.googleusercontent.com',
-      clientSecret: 'NHusHBzq53uJiXsRcB4d-8Ci',//'_KNSZkFWbU2qMRpg2FYItSKP',
-      scope: ['profile', 'email']
-    }
-  },/*
-  twitter: {
-    name: 'Twitter',
-    protocol: 'oauth',
-    strategy: require('passport-twitter').Strategy,
-    options: {
-      consumerKey: 'your-consumer-key',
-      consumerSecret: 'your-consumer-secret'
+      clientID: '708602850919-2cmj6gdbjq91si321dq2hmugn7fqtb09.apps.googleusercontent.com', //'708602850919-eogbne9l34ju3f918kv3hml3jffo771h.apps.googleusercontent.com',
+      clientSecret: 'NHusHBzq53uJiXsRcB4d-8Ci', //'_KNSZkFWbU2qMRpg2FYItSKP',
+      scope: ['profile', 'email'],
+      callbackURL: process.env.NODE_ENV === 'production' ? 'https://electing-the-president.mybluemix.net/auth/google/callback' : 'http://localhost:1337/auth/google/callback',
     }
   },
-  github: {
-    name: 'GitHub',
-    protocol: 'oauth2',
-    strategy: require('passport-github').Strategy,
-    options: {
-      clientID: 'your-client-id',
-      clientSecret: 'your-client-secret'
-    }
-  },
-  facebook: {
-    name: 'Facebook',
-    protocol: 'oauth2',
-    strategy: require('passport-facebook').Strategy,
-    options: {
-      clientID: 'your-client-id',
-      clientSecret: 'your-client-secret'
-    }
-  }
-  youtube: {
-    name: 'Youtube',
-    protocol: 'oauth2',
-    strategy: require('passport-youtube').Strategy,
-    options: {
-      clientID: 'your-client-id',
-      clientSecret: 'your-client-secret'
+  /*
+    twitter: {
+      name: 'Twitter',
+      protocol: 'oauth',
+      strategy: require('passport-twitter').Strategy,
+      options: {
+        consumerKey: 'your-consumer-key',
+        consumerSecret: 'your-consumer-secret'
+      }
     },
-  },
-  'youtube-v3': {
-    name: 'Youtube',
-    protocol: 'oauth2',
-    strategy: require('passport-youtube-v3').Strategy,
-    options: {
-      clientID: 'your-client-id',
-      clientSecret: 'your-client-secret'
-      // Scope: see https://developers.google.com/youtube/v3/guides/authentication
-      scope: [ 'https://www.googleapis.com/auth/youtube.readonly' ],
+    github: {
+      name: 'GitHub',
+      protocol: 'oauth2',
+      strategy: require('passport-github').Strategy,
+      options: {
+        clientID: 'your-client-id',
+        clientSecret: 'your-client-secret'
+      }
     },
-  },
-  */
+    facebook: {
+      name: 'Facebook',
+      protocol: 'oauth2',
+      strategy: require('passport-facebook').Strategy,
+      options: {
+        clientID: 'your-client-id',
+        clientSecret: 'your-client-secret'
+      }
+    }
+    youtube: {
+      name: 'Youtube',
+      protocol: 'oauth2',
+      strategy: require('passport-youtube').Strategy,
+      options: {
+        clientID: 'your-client-id',
+        clientSecret: 'your-client-secret'
+      },
+    },
+    'youtube-v3': {
+      name: 'Youtube',
+      protocol: 'oauth2',
+      strategy: require('passport-youtube-v3').Strategy,
+      options: {
+        clientID: 'your-client-id',
+        clientSecret: 'your-client-secret'
+        // Scope: see https://developers.google.com/youtube/v3/guides/authentication
+        scope: [ 'https://www.googleapis.com/auth/youtube.readonly' ],
+      },
+    },
+    */
 
 };
