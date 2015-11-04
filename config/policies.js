@@ -43,6 +43,10 @@ module.exports.policies = {
  AuthController: {
    '*': [ 'passport' ],
    'me': [ 'basicAuth', 'passport', 'sessionAuth' ]
+ },
+
+ UserController: {
+   'create': ['ModelPolicy']
  }
 
   /***************************************************************************
