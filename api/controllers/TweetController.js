@@ -1,7 +1,7 @@
 /**
- * TweetsController
+ * TweetController
  *
- * @description :: Server-side logic for managing tweets
+ * @description :: Server-side logic for managing tweet
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 

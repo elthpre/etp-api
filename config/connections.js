@@ -89,7 +89,7 @@ module.exports.connections = {
    *                                                                          *
    *                                                                          *
    ***************************************************************************/
-  postgres: {
+  relationalDB: {
     adapter: 'sails-postgresql',
     host: 'selbysdb.cc2dzmnfwron.us-west-2.rds.amazonaws.com',
     user: 'etp',

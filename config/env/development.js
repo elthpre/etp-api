@@ -16,10 +16,13 @@ module.exports = {
    * Set the default database connection for models in the development       *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
-
+  hookTimeout: 60000,
   models: {
-    connection: 'postgres'
+    connection: 'relationalDB'
   },
   callbackDomain: 'http://localhost:1337',
+  log: {
+    level: 'silly'
+  }
 
 };

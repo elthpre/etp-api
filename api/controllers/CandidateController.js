@@ -1,7 +1,7 @@
 /**
- * CandidatesController
+ * CandidateController
  *
- * @description :: Server-side logic for managing candidates
+ * @description :: Server-side logic for managing candidate
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
