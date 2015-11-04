@@ -6,7 +6,7 @@
 */
 
 module.exports = {
-  connection:'bluemix',
+  connection:'cloudant',
   attributes: {
     text: {
       type: 'string',

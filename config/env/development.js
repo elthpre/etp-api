@@ -18,7 +18,7 @@ module.exports = {
    ***************************************************************************/
   hookTimeout: 60000,
   models: {
-    connection: 'relationalDB'
+    connection: 'selbyAwsMysql'
   },
   callbackDomain: 'http://localhost:1337',
   log: {
