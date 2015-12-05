@@ -7,7 +7,5 @@ applications:
   host: elthpr
   disk_quota: 1024M
   services:
-  - elthpr-cloudantNoSQLDB
-  - elthpr-imfpush
-  - elthpr-AdvancedMobileAccess
+  - Cloudant NoSQL DB-jl
   command: node app.js
