@@ -46,4 +46,5 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/user': 'AuthController.me',
+  '/ask': 'AskController.question',
 };

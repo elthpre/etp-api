@@ -45,6 +45,10 @@ module.exports.policies = {
    'me': [ 'basicAuth', 'passport', 'sessionAuth' ]
  },
 
+ AskController: {
+   'question': []
+ },
+
  UserController: {
    'create': ['ModelPolicy']
  }
