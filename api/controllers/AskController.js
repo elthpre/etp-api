@@ -20,7 +20,7 @@ var endpoint = {
 
 module.exports = {
   question: function(req, res) {
-		console.log('Going to answer a question!');
+    console.log('Going to answer a question!');
     // Handler for /question POST requests
     // Submits a question to Watson via the IBM Watson QAAPI
     // and returns the QAAPI response.
@@ -30,14 +30,50 @@ module.exports = {
     var uri = endpoint.host + endpoint.instance;
     var request = require("request");
 
+    if (!req.body.question) {
+      res.json({
+        "question": {
+          "qclasslist": [{
+            "value": "FOCUSLESS"
+          }, {
+            "value": "DESCRIPTIVE"
+          }],
+          "focuslist": [{
+            "value": "What"
+          }],
+          "latlist": [{
+            "value": "What"
+          }],
+          "evidencelist": [{}],
+          "synonymList": [],
+          "disambiguatedEntities": [],
+          "pipelineid": "979125097",
+          "formattedAnswer": true,
+          "category": "",
+          "items": 5,
+          "status": "Complete",
+          "id": "A21FC66CD91446838057FDB397B1B2C9",
+          "questionText": "No question submitted.",
+          "evidenceRequest": {
+            "items": 5,
+            "profile": "NO"
+          },
+          "answers": [],
+          "errorNotifications": [],
+          "passthru": ""
+        }
+      });
+      return;
+    }
+
     // Form a proper Watson QAAPI request
     var questionEntity = {
       "question": {
         "evidenceRequest": { // Ask Watson to return evidence
           "items": 5 // Ask for 5 answers with evidence
         },
-        "questionText": req.body.question, // The question
-				"formattedAnswer": true
+        "questionText": req.body.question || '', // The question
+        "formattedAnswer": true
       }
     };
 
