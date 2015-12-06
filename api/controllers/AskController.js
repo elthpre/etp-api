@@ -36,7 +36,8 @@ module.exports = {
         "evidenceRequest": { // Ask Watson to return evidence
           "items": 5 // Ask for 5 answers with evidence
         },
-        "questionText": req.body.question // The question
+        "questionText": req.body.question, // The question
+				"formattedAnswer": true
       }
     };
 
