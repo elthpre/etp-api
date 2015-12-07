@@ -46,11 +46,16 @@ module.exports.policies = {
  },
 
  AskController: {
+   'find': [],
    'question': []
  },
 
  UserController: {
    'create': ['ModelPolicy']
+ },
+
+ SocketController: {
+   'subscribe': []
  }
 
   /***************************************************************************

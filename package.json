@@ -28,6 +28,7 @@
     "include-all": "^0.1.6",
     "jsbn": "^0.1.0",
     "lodash": "^3.10.1",
+    "natural": "naturalnode/natural",
     "passport": "^0.3.0",
     "passport-google": "^0.3.0",
     "passport-google-oauth": "^0.2.0",

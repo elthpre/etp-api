@@ -8,7 +8,15 @@
 module.exports = {
 
   attributes: {
-
+    question: {
+      type: 'string',
+      unique: true,
+      required: true
+    },
+    count: {
+      type: 'integer',
+      defaultsTo: 1,
+      required: true
+    }
   }
 };
-
