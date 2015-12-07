@@ -44,7 +44,8 @@
     "sails-mysql": "^0.11.0",
     "sails-permissions": "^1.4.2",
     "sails-postgresql": "^0.10.16",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "watson-developer-cloud": "^1.0.5"
   },
   "scripts": {
     "debug": "node debug app.js",

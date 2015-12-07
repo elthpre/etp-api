@@ -50,6 +50,10 @@ module.exports.policies = {
    'question': []
  },
 
+ InsightsController: {
+   'analyze': []
+ },
+
  UserController: {
    'create': ['ModelPolicy']
  },
