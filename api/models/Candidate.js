@@ -11,6 +11,9 @@ module.exports = {
     name: {
       type: 'string',
     },
+    gender: {
+      type: 'string',
+    },
     party: {
       type: 'string',
     },
@@ -20,24 +23,20 @@ module.exports = {
     birthplace: {
       type: 'string',
     },
-    state: {
+    hometown: {
       type: 'string',
     },
-    announced: {
-      type: 'date',
-    },
-    widthdrew: {
-      type: 'date',
-    },
-    candidacy: {
+    religion: {
       type: 'string',
     },
-    bio: {
+    education: {
       type: 'text',
     },
-    tweet: {
-      collection: 'tweet',
-      via: 'canditate'
+    political: {
+      type: 'text',
+    },
+    professional: {
+      type: 'text',
     }
   }
 };
