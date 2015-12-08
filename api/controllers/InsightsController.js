@@ -57,7 +57,7 @@ module.exports = {
     if (req.body.typeId) {
       options.typeId = req.body.typeId;
     }
-		Insights.findOne({type: options.type, typeId: options.typeId}).exec(function(err, insights) {
+		/*Insights.findOne({type: options.type, typeId: options.typeId}).exec(function(err, insights) {
 			if (err) { console.log(err); }
 			if (!insights) {
 				personality_insights.profile({
@@ -81,10 +81,10 @@ module.exports = {
 							});
 						}
 		      });
-			} else {
+			} else {*/
 				res.json(JSON.parse(insights.rawJsonOutput));
 	      return;
-			}
-		});
+			//}
+		//});
   }
 };
