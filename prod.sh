@@ -11,4 +11,4 @@ export CLOUDDB_PORT=443
 
 export NODE_ENV=production
 
-node app.js --prod
+node --expose-gc app.js --prod
