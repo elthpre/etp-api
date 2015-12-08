@@ -50,6 +50,10 @@ module.exports.policies = {
    'question': []
  },
 
+ CandidateController: {
+   'find': []
+ },
+
  InsightsController: {
    'analyze': []
  },
