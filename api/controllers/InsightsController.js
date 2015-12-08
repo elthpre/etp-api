@@ -33,58 +33,61 @@ rawJsonOutput: {
 var types = ['candidate', 'fb', 'twitter', 'other'];
 
 module.exports = {
-  analyze: function(req, res) {
-    var options = {
-      type: null,
-      rawInputText: null
-    };
-    if (req.body.type && types.indexOf(req.body.type)) {
-      options.type = req.body.type;
-    } else {
-      res.json({
-        message: 'Type must be one of [\'candidate\', \'fb\', \'twitter\', \'other\']'
-      });
-      return;
-    }
-    if (req.body.rawInputText && req.body.rawInputText.length > 5000) {
-      options.rawInputText = req.body.rawInputText;
-    } else {
-      res.json({
-        message: 'rawInputText must be over 5000 chars'
-      });
-      return;
-    }
-    if (req.body.typeId) {
-      options.typeId = req.body.typeId;
-    }
-		/*Insights.findOne({type: options.type, typeId: options.typeId}).exec(function(err, insights) {
+    analyze: function(req, res) {
+        var options = {
+          type: null,
+          rawInputText: null
+        };
+        if (req.body.type && types.indexOf(req.body.type)) {
+          options.type = req.body.type;
+        } else {
+          res.json({
+            message: 'Type must be one of [\'candidate\', \'fb\', \'twitter\', \'other\']'
+          });
+          return;
+        }
+        if (req.body.rawInputText && req.body.rawInputText.length > 5000) {
+          options.rawInputText = req.body.rawInputText;
+        } else {
+          res.json({
+            message: 'rawInputText must be over 5000 chars'
+          });
+          return;
+        }
+        if (req.body.typeId) {
+          options.typeId = req.body.typeId;
+        }
+        personality_insights.profile({
+            text: options.rawInputText,
+            language: 'en'
+          },
+          function(err, response) {
+            if (err) {
+              console.log('error:', err);
+            } else {
+              console.log(JSON.stringify(response, null, 2));
+              options.rawJsonOutput = JSON.stringify(response);
+              Insights.create(options).exec(function(err, created) {
+                if (err) {
+                  console.log(err);
+                }
+                if (!created) {
+                  console.log(new Error('Failed to save insights.'));
+                } else {
+                  console.log('Insights saved!');
+                  res.json(response);
+                }
+              });
+            }
+          });
+        /*Insights.findOne({type: options.type, typeId: options.typeId}).exec(function(err, insights) {
 			if (err) { console.log(err); }
 			if (!insights) {
-				personality_insights.profile({
-		        text: options.rawInputText,
-		        language: 'en'
-		      },
-		      function(err, response) {
-		        if (err) {
-							console.log('error:', err);
-						} else {
-		          console.log(JSON.stringify(response, null, 2));
-							options.rawJsonOutput = JSON.stringify(response);
-							Insights.create(options).exec(function(err, created) {
-								if (err) { console.log(err); }
-								if (!created) {
-									console.log(new Error('Failed to save insights.'));
-								} else {
-									console.log('Insights saved!');
-									res.json(response);
-								}
-							});
-						}
-		      });
-			} else {*/
+
+			} else {
 				res.json(JSON.parse(insights.rawJsonOutput));
 	      return;
-			//}
-		//});
+			}
+		});*/
   }
 };
