@@ -59,5 +59,6 @@ module.exports = {
     if (global.gc) {
       global.gc();
     }
+    return;
   }
 };
